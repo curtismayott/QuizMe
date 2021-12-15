@@ -3,7 +3,6 @@ package com.mg.quizme;
 import com.mg.quizme.classes.Quiz;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
 public class Main {
@@ -13,10 +12,10 @@ public class Main {
         try {
             quiz = processor.processFile("C:\\Users\\Curtis MG\\IdeaProjects\\QuizMe\\src\\com\\mg\\quizme\\sourcefiles\\quiz.csv");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String userAnswer = "";
+
             for(int i = 0; i < quiz.getQuestions().size(); i++) {
                 System.out.print(quiz.getQuestion(i).getQuestion() + " ");
-                userAnswer = br.readLine();
+                String userAnswer = br.readLine();
                 if(userAnswer.toLowerCase().equals(quiz.getQuestion(i).getAnswer().toLowerCase())){
                     System.out.println("Correct!");
                     quiz.getQuestion(i).setCorrectAnswer(true);
